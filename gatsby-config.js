@@ -1,13 +1,12 @@
 const path = require("path");
 const pathPrefix = "/";
 const siteMetadata = {
-  title: "Gatsby Starter for Gatsby Theme Primer Wiki",
-  shortName: "Wiki",
-  description:
-    "A starter that use gatsby-theme-primer-wiki",
-  twitterName: "theowenyoung",
-  imageUrl: "/graph-visualisation.jpg",
-  siteUrl: "https://demo-gatsby-starter-primer-wiki.owenyoung.com",
+  title: "PAPICO WIKI",
+  shortName: "PAPICO WIKI",
+  description: "PAPICO WIKI",
+  imageUrl: "/image.png",
+  siteUrl: "https://ocipap.github.io/",
+  fbAppId: "",
 };
 module.exports = {
   siteMetadata,
@@ -27,17 +26,27 @@ module.exports = {
       resolve: "gatsby-theme-primer-wiki",
       options: {
         nav: [
-      
+          {
+            title: "Latest",
+            url: "/latest/",
+          },
           {
             title: "Github",
-            url: "https://github.com/theowenyoung/gatsby-starter-primer-wiki/",
-          },
-          {
-            title: "Twitter",
-            url: "https://twitter.com/theowenyoung",
+            url: "https://github.com/ocipap/",
           },
         ],
-        editUrl: "https://github.com/theowenyoung/gatsby-starter-primer-wiki/tree/main/",
+        sidebarComponents: ["tag"],
+        tagText: "Tags",
+        lastUpdatedText: "최근 수정 일: ",
+        lastUpdatedTransformer: (isoString) => {
+          const dateObj = new Date(isoString);
+          const date = dateObj.toLocaleString("ko-KR", {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric",
+          });
+          return date;
+        },
       },
     },
     {
@@ -48,7 +57,7 @@ module.exports = {
         start_url: pathPrefix,
         background_color: `#f7f0eb`,
         display: `standalone`,
-        icon: path.resolve(__dirname, "./static/logo.png"),
+        icon: path.resolve(__dirname, "./static/papico.jpeg"),
       },
     },
     {
