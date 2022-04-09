@@ -9,17 +9,21 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
-    "test": "echo test"
+    "test": "echo test",
+    "deploy": "gatsby build && gh-pages -d public -b master -r 'git@github.com:ocipap/ocipap.github.io.git'"
   },
   "dependencies": {
     "gatsby": "4.6.0",
     "gatsby-plugin-google-gtag": "^3.12.0",
-    "gatsby-plugin-sitemap": "^4.8.0",
     "gatsby-plugin-manifest": "^4.7.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
+    "gatsby-plugin-sitemap": "^4.8.0",
     "gatsby-source-filesystem": "^4.7.0",
     "gatsby-theme-primer-wiki": "^2.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }

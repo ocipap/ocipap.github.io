@@ -2,8 +2,7 @@
 title: Typescript
 tags:
   - Typescript
-date:
-  - 2021-12-12
+date: '2021-04-09 00:00:00'
 ---
 
 ## ReturnType 으로 타입 좁히기
