@@ -4,14 +4,14 @@ tags:
   - css
 ---
 
-### safari 에서 input disabled 색상이 안보이는 경우
+## safari 에서 input disabled 색상이 안보이는 경우
 
 ```css
 -webkit-text-fill-color: #880000; // 원하는 색상
 opacity: 1; /* required on iOS */
 ```
 
-### flex gap 대신 사용할 수 있는 선택자
+## flex gap 대신 사용할 수 있는 선택자
 
 일부 브라우져에서는 flex 의 gap 속성이 되지 않는다.
 
