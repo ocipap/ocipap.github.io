@@ -46,9 +46,9 @@ Stale Time (기본값: 0)
 
 데이터가 fresh 에서 stale 까지 걸리는 시간
 
-Chche Time (기본값: 5min)
+Cache Time (기본값: 5min)
 
-데이터가 inactive 상태에서 Chche Time 만큼 유지된 이후에 가비지 콜렉터로 수집된다.
+데이터가 inactive 상태에서 Cache Time 만큼 유지된 이후에 가비지 콜렉터로 수집된다.
 
 ## Stale Time 이 0인 이유
 
@@ -62,13 +62,13 @@ Chche Time (기본값: 5min)
 
 queryClient 의 prefetchQuery 를 이용해서 다음 데이터를 미리 가져올 수 있다.
 
-```
+```typescript
 useEffect(()=>{
-	if(currentPage >= maxPostPage) {
-		return;
-	}
-	const nextPage = currentPage +1;
-	queryClient.prefetchQuery(["posts",nextPage],()=> fetchPosts(nextPage))
+  if(currentPage >= maxPostPage) {
+    return;
+  }
+  const nextPage = currentPage + 1;
+  queryClient.prefetchQuery(["posts",nextPage],()=> fetchPosts(nextPage))
 },[currentPage,queryClient])
 ```
 
@@ -88,13 +88,13 @@ useQuery 의 `keepPreviousData` 옵션을 통해 쿼리키가 변경된 경우 �
 const {
   data: {
     pages, // 실제 페이지 데이터 배열 [0, 1, 2, 3] 각각의 배열 인덱스에 맞춰서 데이터가 들어가 있음
-		pageParams // 다음 페이지 url 및 param 정보 -> getNextPageParam 의 리턴 값
+    pageParams // 다음 페이지 url 및 param 정보 -> getNextPageParam 의 리턴 값
   }, 
-	fetchNextPage, // 다음 페이지 fetching 하는 함수
-	hasNextPage, // 다음 페이지가 있는 경우 참
-	isLoading, // 로딩 시 참
-	isFetching, // 데이터 fetching 시 참
-	isError // 에러 발생시 참
+  fetchNextPage, // 다음 페이지 fetching 하는 함수
+  hasNextPage, // 다음 페이지가 있는 경우 참
+  isLoading, // 로딩 시 참
+  isFetching, // 데이터 fetching 시 참
+  isError // 에러 발생시 참
 } = useInfiniteQuery(
   ["sw-people"], ({pageParam = initialUrl}) => {
     console.log(pageParam);
@@ -120,7 +120,7 @@ new QueryClient({
     queries: {
       retry: 0,
       onError: (error: unknown) => {
-				// error handling 
+        // error handling 
       },
     },
   },
@@ -149,7 +149,7 @@ new QueryClient({
 useQuery 의 select 옵션을 통해 가져온 데이터를 커스텀할 수 있다.
 
 ```jsx
-*{* select: showAll ? undefined : selectFn *}*
+{ select: showAll ? undefined : selectFn }
 ```
 
 undefined 시에는 현재 캐시 데이터를 그래도 반환하고, 함수가 등록된 경우에는 해당 함수의 리턴을 반환한다.
@@ -174,7 +174,7 @@ undefined 시에는 현재 캐시 데이터를 그래도 반환하고, 함수가
     - refetch 은 데이터가 stale 상태인 경우에만 요청하기 때문에 fresh 상태의 데이터를 오래 놔둔다.
 - refresch option 들 끄기
     - 여러가지 refresh 옵션들이 존재하는데 이들을 끄면 된다.
-- 정말 한번 가져오면 정말 안가져와도 되는 데이터들은 조금 관리해줘도 괜찮을 것 같음...
+- 정말 한번 가져오면 정말 안가져와도 되는 데이터들은 조금 관리해줘도 괜찮을 것 같음
 
 ## 전역 refetch option
 
@@ -208,9 +208,9 @@ queryClient.setQueryData(queryKey, updater)
 
 ```jsx
 function useUser() {
-	// query 문
+  // query 문
 
-	// set 문
+  // set 문
 
   // clear 문
 }
@@ -299,25 +299,18 @@ devtool 로 확인한 결과 쿼리 클라이언트 자체를 제거한다.
 
 setQueryData null 과 removeQueries 와 동작이 비슷하지만, setQueryData 는 쿼리의 onSuccess 함수를 호출한다는 것에 의미가 있다.
 
-## mutaion 도 queryClient 인스턴스를 생성할 때 기본값을 설정한다.
+## mutation 전역 에러 헨들링
+query 와 비슷하게 QueryClient 인스턴스를 생성하는 과정에서 전역 에러 핸들링을 추가할 수 있다.
 
-```jsx
-const queryClient = new QueryClient({
+```typescript
+export const queryClient = new QueryClient({
   defaultOptions: {
-    queries: {
-      retry: 0,
-      onError: (error: unknown) => {
-        queryErrorHandler(error);
-      },
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-    },
+    ...,
     mutations: {
-      onError: queryErrorHandler,
-    },
-  },
-});
+      onError: queryErrorHandler
+    }
+  }
+})
 ```
 
 ## 전역 mutation loading 은 `useIsMutating` 을 사용한다.
@@ -328,15 +321,16 @@ export function Loading(): ReactElement {
   const isMutating = useIsMutating();
 
   const display = isFetching || isMutating ? 'inherit' : 'none';
-
-	return <Loading {display} />
+  
+  return <Loading {display} />
 }
 
 ```
 
+
 ## useMutation 과 useQuery 의 차이점
 
-- 캐시 데이터가 없음 (no chche data)
+- 캐시 데이터가 없음 (no cache data)
 - 재시도가 없음 (no retries)
 - 재패치가 없음 (no refetch)
 - isFetching 이 없음 (캐시 데이터가 없기 때문에, 모든 로딩은 isLoading 으로 판별)
@@ -351,5 +345,27 @@ UseMutateFunction<TData, TError, TVariables, TContext>
 TData: mutate 의 리턴 타입
 TError: mutate 의 에러 타입
 TVariables: mutate 함수의 인자 타입
-TContex: onMutate 콜백의 인자 타입
+TContext: onMutate 콜백의 인자 타입
 ```
+
+## UseMutateFunction 사용 예시
+```typescript
+function useReserveAppointment(): UseMutateFunction<void, Error, Appointment, unknown> {
+  const { mutate } = useMutation((appointment: Appointment) => setAppointmentUser())
+
+  return mutate;
+}
+```
+
+## queryClient.invalidateQueries
+쿼리를 무효화 시켜 새로운 쿼리 데이터를 fetching 한다.
+
+invalidateQueries 의 효과  
+- query 를 stale 상태로 만든다.
+- 만약 현재 렌더링 중이라면 re-fetch 한다.
+
+## Query Key Prefixes
+useQuery 의 쿼리키의 기준 잘 설정해서, invalidateQueries 를 할떄 그룹핑하는 방법이 있다.
+
+예를 들어, 해당 mutate 성공 시 user 관련 쿼리들을 일괄 invalidateQueries 를 해야된다고 할때 유용하다.
+

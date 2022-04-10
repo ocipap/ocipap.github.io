@@ -182,7 +182,7 @@ handleSubmit.mockImplementation((event) => {
 
 리덕스를 사용하는 경우 Container 컴포넌트에서는 mocking한 dispatch가 정확한 액션으로 호출되었는지만 테스트한다. 실제 state 의 변화는 reducer 테스트로 검증하고, 실제 앱에서 해당 데이터가 정확이 노출되는 지는 Presentation Component 에서 테스트한다.
 
-## j**est 에서 mock들을 정리하는 방법**
+## jest 에서 mock들을 정리하는 방법**
 
 ```jsx
 // 각각의 mock 함수에서 mockClear 메서드 실행
