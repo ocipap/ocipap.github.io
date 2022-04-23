@@ -40,13 +40,12 @@ fresh 상태에서는 아무리 새롭게 마운트를 해도 fetching 이 일�
 
 fetching 은 데이터를 가져오는 중인 상태 → 캐시된 데이터가 있으면 그 데이터를 사용할 수 있음
 
-stale 에서 inactive 로 넘어가는 건 어떻게 테스트해야할지 모르겠음... 쿼리 인스턴스가 unmount 가 되면 된다는데...
 
-Stale Time (기본값: 0)
+**Stale Time (기본값: 0)**
 
 데이터가 fresh 에서 stale 까지 걸리는 시간
 
-Cache Time (기본값: 5min)
+**Cache Time (기본값: 5min)**
 
 데이터가 inactive 상태에서 Cache Time 만큼 유지된 이후에 가비지 콜렉터로 수집된다.
 
@@ -368,4 +367,127 @@ invalidateQueries 의 효과
 useQuery 의 쿼리키의 기준 잘 설정해서, invalidateQueries 를 할떄 그룹핑하는 방법이 있다.
 
 예를 들어, 해당 mutate 성공 시 user 관련 쿼리들을 일괄 invalidateQueries 를 해야된다고 할때 유용하다.
+
+## onSuccess 로직에서 return 을 하면 await 처럼 동작한다.
+
+onSuccess 로직에서 return 을 사용하게 되면 await 를 건것처럼 동작하게 된다.
+```jsx
+{
+  {
+    onSuccess: () => {
+      return queryClient.refetchQueries('todos'); // 해당 refetch 가 성공했을 때 이후 로직이 수행된다.
+    }
+  }
+
+  {
+    onSuccess: () => {
+      queryClient.refetchQueries('todos'); // void 처럼 동작함
+    }
+  }
+}
+```
+
+
+## infiniteQuery 에서는 invalidateQueries 가 동작하지 않는 것 같다.
+mutate 이후에 onSuccess 로직에서 infiniteQuery 를 invalidate 해야하는 일이 있었다.
+(상세페이지에서 좋아요를 누르고, 다시 리스트 페이지로 이동한 경우)
+
+하지만 infiniteQuery 가 invalidate 상태로 변하지 않았다.
+
+https://github.com/tannerlinsley/react-query/discussions/1264
+
+쓰레드로 확인했을 때 제작자분은 되는게 정상이라고 하시는데, 나는 잘 되지 않았다.
+
+그래서 임시방편으로 refetchQueries 를 사용했다.
+
+
+## mutate 와 useMutation 에 onSuccess 로직
+mutation 이 성공했을때의 로직을 담을 수 있는 함수인 onSuccess 는 useMutation 의 세 번쨰 인자 or onSuccess 의 두 번째 인자로 넘길 수 있다. 
+
+```js
+ const {
+   mutate,
+ } = useMutation(mutationFn, {
+   onSuccess,
+ })
+ 
+ mutate(variables, {
+   onSuccess: () => {
+
+   },
+ })
+```
+
+## useMutation 의 동작
+**onMutate**
+mutation 이 시작하였을 때
+mutation 에서 return 하는 값은 해당 mutation 에서 context 로 참조가 가능하다.
+
+**onError**
+에러가 발생했을 때
+
+**onSuccess**
+성공했을 때
+
+**onSettled**
+mutation 이 끝났을 때, 성공 or 실패 에 상관없이 실행됨
+
+```jsx
+useMutation(addTodo, {
+  onMutate: variables => {
+    return { id: 1 };
+  },
+  onError: (error, variables, context) => {
+    console.log(`에러 발생: ${context.id}`);
+  },
+  onSuccess: (data, variables, context) => {
+    console.log('성공');
+  },
+  onSettled: (data, error, variables, context) => {
+    console.log('mutation 끝남');
+  },
+});
+```
+
+## onSuccess 의 인자
+**data**
+API 응답 값
+
+**variables**
+mutate 함수 실행 인자
+
+**context**
+onMutate 함수에서 return 한 값
+
+
+```jsx
+onSuccess: (data, variables, context) => {
+  console.log('성공');
+}
+```
+## useQuery 사용시 isLoading 과 data 유무를 전부 확인해야한다.
+간혹 useQuery 를 사용할 때 단순히 isLoading 으로만 데이터 유무를 판단할 때가 있었다.
+
+```jsx
+
+
+const { data, isLoading } = useQuery();
+
+if (isLoading) { // fetching 끝난후
+  return <div>Loading 중...</div>
+}
+
+return (
+  <div>{data?.hello}</div>
+)
+```
+
+이렇게 되는 경우 API 가 실패한 경우 해당 컴포넌트 에러가 발생한다.
+데이터를 fetching 하는 동안 isLoading 이 true 가 된다.
+
+이후 API 가 실패해서 데이터가 정상적으로 불러와지지 않은 상태에서 isLoading 은 false 가 되고, data는 undefined 가 된다.
+
+`data.hello` 에서 에러가 발생한다.
+
+따라서 isError 혹은 data 의 유무와 같은 적당한 분기가 필요하다.
 
