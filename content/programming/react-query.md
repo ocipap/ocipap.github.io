@@ -491,3 +491,57 @@ return (
 
 따라서 isError 혹은 data 의 유무와 같은 적당한 분기가 필요하다.
 
+## Optimistic Updates
+직역하면 낙관적 업데이트로, 사용자의 요청이 오면 즉시 해당 UI 를 업데이트 시키고, 이후 서버의 응답으로 업데이트 혹은 UI 롤백을 시키는 방법이다.  
+좋아요를 눌렀을 때 사용하기 좋다.
+
+```jsx
+useMutation(updateTodo, {
+  // mutate 실행
+  onMutate: async newTodo => {
+    // cancelQueries 를 통해 혹시 실행되고 있는 refetch 를 취소한다.
+    await queryClient.cancelQueries(['todos', newTodo.id])
+
+    // 기존 데이터 가져오기
+    const previousTodo = queryClient.getQueryData(['todos', newTodo.id])
+
+    // 낙관적 업데이트
+    queryClient.setQueryData(['todos', newTodo.id], newTodo)
+
+    // 해당 mutation 에서 사용할 context 리턴
+    return { previousTodo, newTodo }
+  },
+  // 에러 발생 시 기존에 업데이트 했던 데이터 되돌리기
+  // 이때 onMutate 에서 리턴한 값을 세번째 인자인 context 에서 사용할 수 있음
+  onError: (err, newTodo, context) => {
+    queryClient.setQueryData(
+      ['todos', context.newTodo.id],
+      context.previousTodo
+    )
+  },
+  // 성공 or 실패 이후에 쿼리 리패치
+  onSettled: newTodo => {
+    queryClient.invalidateQueries(['todos', newTodo.id])
+  },
+})
+```
+
+## setLogger
+react query 에서 발생하는 로그를 setLogger 함수를 통해 커스텀할 수 있다.  
+사내에서는 윈스턴을 사용하니 전역적으로 설정하면 도움이 될 것 같다. 
+
+```jsx
+import { setLogger } from 'react-query'
+import { printLog, printWarn, printError } from 'custom-logger'
+
+// Custom logger
+setLogger({
+  log: printLog,
+  warn: printWarn,
+  error: printError,
+})
+
+// Winston logger
+setLogger(winston.createLogger())
+```
+
