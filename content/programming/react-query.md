@@ -545,3 +545,38 @@ setLogger({
 setLogger(winston.createLogger())
 ```
 
+## Query Test 는 msw와 react-testing-library 를 사용한다.
+jest 환경에서 msw 를 셋팅하여 테스트하면 실제 API 통신을 목킹할 수 있다.
+
+msw 는 튜토리얼이 잘되어 있어 설치 및 작성 방법은 아래 공식문서를 참고한다.
+https://mswjs.io/
+
+msw 에서 지정한 헨들러를 통해 테스트 코드에서 네트워크 통신을 목킹한다.
+
+**req**  
+요청, 요청에 관련된 정보가 담겨있는 object
+
+**res**  
+응답, mocked response 생성을 도와주는 함수
+
+**ctx**  
+status code 나 headers, body, 등등을 셋팅할 수 있는 인스턴스
+
+```js
+const worker = setupWorker(
+  rest.post('/login', (req, res, ctx) => {  ctx   
+    const { username } = req.body
+    return res(
+      ctx.json({
+        username,
+        firstName: 'John'
+      })
+    )
+  }),
+)
+```
+
+## Test 시 Query Wrapper 를 사용한다.
+
+
+## mutate 테스트 하는 방법

@@ -197,3 +197,15 @@ jest.clearAllMocks();
 ## jest.unmock 으로 mock 모듈 해제하기
 
 jest 에서는 특정 모듈을 mocking 하기 위해서 `__mocks__` 라는 폴더에 mock 들을 구현하고, 이때 jest 설정중에 automock 이 true 로 되어있는 경우는 해당 폴더에 있는 라이브러리 들을 자동으로 mocking 해준다.
+
+## Testing Playground chrome extension
+프론트엔드 테스트를 진행하다보면, getBy~~ 처럼 쿼리를 통해 돔을 찾아내야 하는 상황이 있다.  
+이때 유용한 크롬 확장 프로그램을 이용하면 비교적 쉽게 쿼리를 작성할 수 있다. 
+
+https://chrome.google.com/webstore/detail/testing-playground/hejbmebodbijjdhflfknehhcgaklhano
+
+해당 확장 프로그램을 설치한 이후 웹사이트에 들어가 개발자 도구를 열면, Testing Playground 라는 탭이 생겼을 것이다.  
+
+![](../attachments/frontend-test-2022-04-28-10-22-42.png)
+
+1번을 클릭하고 원하는 돔에 마우스를 올리면 해당 돔을 찾을 수 있는 쿼리가 나온다.  
