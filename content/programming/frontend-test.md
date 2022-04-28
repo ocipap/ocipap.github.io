@@ -206,6 +206,8 @@ https://chrome.google.com/webstore/detail/testing-playground/hejbmebodbijjdhflfk
 
 해당 확장 프로그램을 설치한 이후 웹사이트에 들어가 개발자 도구를 열면, Testing Playground 라는 탭이 생겼을 것이다.  
 
-![](../attachments/frontend-test-2022-04-28-10-22-42.png)
 
-1번을 클릭하고 원하는 돔에 마우스를 올리면 해당 돔을 찾을 수 있는 쿼리가 나온다.  
+![](../attachments/frontend-test-2022-04-28-10-35-45.png)
+
+  
+1번을 클릭하고 2번(원하는 돔)에 마우스를 올리면 해당 돔을 찾을 수 있는 쿼리가 나온다.  
