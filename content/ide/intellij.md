@@ -29,6 +29,7 @@ https://plugins.jetbrains.com/plugin/9286-darkyen-s-time-tracker
 하지만 브랜치마다 적용되는 건 아니여서 현재, 업무에 컨텍스트 스위칭이 발생했거나, 하루가 넘어가는 시점에서는 한번씩 reset time 을 입력해준다.
 
 
+
 # 기타
 
 ## jira 연결

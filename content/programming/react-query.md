@@ -15,6 +15,10 @@ queryClient 에 데이터를 전달하는 방법을 사용
 
 - initialData 를 이용하는 방법
 
+## react-query 는 동시에 나가는 요청의 중복을 제거한다.  
+각각의 컴포넌트에서 useQuery 를 사용하더라도, 동일한 요청에 관해서는 중복을 제거한다.
+
+
 ## useQuery 의 isFetching 과 isLoading 의 차이
 
 - isFetching
@@ -203,21 +207,16 @@ new QueryClient({
 queryClient.setQueryData(queryKey, updater)
 ```
 
-## 도메인 별로 쿼리를 둔다
+## queryClient.getQueryData
 
-```jsx
-function useUser() {
-  // query 문
+쿼리 키 기반으로 클라이언트 캐시 데이터를 반환한다. 제네릭으로 리턴하는 값의 타입을 지정할 수도 있다.
 
-  // set 문
+## getQueryData VS useQuery  
 
-  // clear 문
-}
-```
+해당 Discussions 링크를 첨부한다.  
+[What is the best (or alternate) ways to fetch the server data from a child component when the parent component hits an api that returns all the data that we need?](https://github.com/tannerlinsley/react-query/discussions/1619)
 
-데이터가 필요한 영역에서 바로 useQuery 를 때리고, 해당 쿼리의 fresh 상태를 오래 가져가면
-
-해당 쿼리 인스턴스에 대한 refetch 없이 오래동안 데이터를 옵저빙할 수 있다.
+데이터가 필요한 컴포넌트에서 직접 useQuery 를 요청하는 것을 권장한다.
 
 ## query 의 onSuccess 가 울리는 시점
 
