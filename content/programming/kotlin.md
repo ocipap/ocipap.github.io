@@ -36,6 +36,27 @@ class ListTest : DescribeSpec({
 })
 ```
 
+## Enum
+
+
+## values
+
+## ramda
+
+## `?:` 연산식
+
+
+## repeat 
+
+## system io
+
+## construct-like functions
+
+## class 종류
+data, enum, 일반
+
+## 상수화
+
 # Test
 
 ## shouldThrow
@@ -56,7 +77,10 @@ describe("사칙연산 기호가 아닌 경우") {
 }
 ```
 
+# 알쓸신잡
 
+## const only primitives and string are allowed
+const 상수는 원시값 및 string 만 허용한다.
 
 # IDEA
 
