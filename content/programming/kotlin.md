@@ -36,6 +36,9 @@ class ListTest : DescribeSpec({
 })
 ```
 
+## property getter setter
+private set
+
 ## Enum
 
 
@@ -56,6 +59,14 @@ class ListTest : DescribeSpec({
 data, enum, 일반
 
 ## 상수화
+
+## require
+
+
+## contract
+
+
+## 스마트 캐스팅
 
 # Test
 
