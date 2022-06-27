@@ -1,7 +1,7 @@
 ---
 title: Clean Code 요약
 tags:
-  - Book
+  - 책읽기
 ---
 
 # 함수

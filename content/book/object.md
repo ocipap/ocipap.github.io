@@ -1,7 +1,7 @@
 ---
 title: 오브젝트
 tags:
-  - Book
+  - 책읽기
   - OOP
 ---
 
