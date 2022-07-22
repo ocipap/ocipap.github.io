@@ -36,7 +36,7 @@ Shaka player, React, Typescript, redux, react-query, react-hook-form, react-test
 
 ### 랠릿  
 IT 채용 플랫폼 랠릿 서비스의 어드민 페이지를 개발하였습니다.  
- 
+
 **홈페이지 주소**  
 https://www.rallit.com/en      
 
@@ -121,5 +121,4 @@ https://slvn.page.link/-LT14Za2B638t9DAv0R-
 
 ## Inflab 심야 FE 발표 - 랠릿은 어떻게 만들어졌을까?  
 인프랩에서 주최한 심야 FE 컨퍼런스에서 "랠릿은 어떻게 만들어졌을까?" 라는 주제로 랠릿을 개발하면서 발생했던 문제점과, 해결 방법, 그리고 방지책을 이야기했습니다.
-
 

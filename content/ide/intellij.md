@@ -7,7 +7,7 @@ tags:
 # 플러그인
 
 ## 코드 리뷰 플러그인
-https://plugins.jetbrains.com/plugin/12206-new-relic-codestream-github-gitlab-prs-and-code-review
+https://plugins.jetbrains.com/plugin/12206-new-relic-codestream-github-gitlab-prs-and-code-review  
 IDE 에서 바로 코드 리뷰를 달 수 있고, PR 생성도 가능하다.
 
 그리고 나한테 온 PR 요청도 알림으로 떠서 바로 확인할 수 있다.
