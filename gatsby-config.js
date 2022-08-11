@@ -35,7 +35,7 @@ module.exports = {
             url: "https://github.com/ocipap/",
           },
         ],
-        sidebarComponents: ["tag"],
+        sidebarComponents: ["latest", "tag"],
         tagText: "Tags",
         lastUpdatedText: "최근 수정 일: ",
         lastUpdatedTransformer: (isoString) => {
