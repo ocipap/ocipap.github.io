@@ -11,4 +11,3 @@ tags:
 원인은 SSR 을 하게될 시에 style element 도 함께 렌더링이 되는데, 이떄 `:first-child` 가 style element 가 될 수도 있어서 보여주는 경고이다.
 
 참고 링크: https://github.com/emotion-js/emotion/issues/1059#issuecomment-444566635
-

@@ -1,7 +1,7 @@
 ---
 title: Raycast
 tags:
-  - 
+  - Raycast
 ---
 
 최근 Alfred 와 Jira 를 연동해보려다가 실패를 해서 이것저것 찾아보던 중 Raycast 라는 Tool 을 알게되었다.  
