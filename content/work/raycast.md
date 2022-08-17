@@ -90,9 +90,6 @@ Jira 테스크 관리 기능을 제공한다.
 추가로 사용하는 IDE 나 터미널로 여는 기능이나, 해당 git repo 의 origin 을 여는 기능또한 지원한다. `cmd + shift + o`  
 ![](../attachments/raycast-2022-08-16-14-02-43.png)
 
-## Manage Services
-
-
 
 ## JetBrains
 
@@ -103,3 +100,5 @@ Jira 테스크 관리 기능을 제공한다.
 ## Window Management
 
 ## Terminal Finder
+
+## Port Manager
