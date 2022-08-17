@@ -10,6 +10,9 @@ tags:
 
 그 중 자주 사용하거나 유용한 익스텐션을 추천해보겠다.
 
+설치 링크  
+https://www.raycast.com
+
 ## File Search
 현재 내 기기안에 있는 파일을 Finder 보다 빠르게 찾아준다.  
 자주 사용하는 기능이라 Alias 를 `[` 로 등록해두었다.
