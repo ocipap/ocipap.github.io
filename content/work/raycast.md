@@ -6,12 +6,11 @@ tags:
 
 최근 Alfred 와 Jira 를 연동해보려다가 실패를 해서 이것저것 찾아보던 중 Raycast 라는 Tool 을 알게되었다.  
 
-기존에 Spotlight 를 자주 사용한 맥 유저라면 한 번 사용해보는 것을 추천드린다.
 
-그 중 자주 사용하거나 유용한 익스텐션을 추천해보겠다.
+[설치 링크](https://www.raycast.com)
 
-설치 링크  
-https://www.raycast.com
+자주 사용하거나 유용한 익스텐션을 적어보겠다.
+
 
 ## File Search
 현재 내 기기안에 있는 파일을 Finder 보다 빠르게 찾아준다.  
@@ -94,14 +93,39 @@ Jira 테스크 관리 기능을 제공한다.
 ![](../attachments/raycast-2022-08-16-14-02-43.png)
 
 
-## JetBrains
-
-## Confluence Search
-
 ## Session
+평소 업무나 개인 공부를 할때 Session 앱을 자주 사용하는데 플러그인이 있어 설치했다.
+
+session 을 시작하거나 끝낼 수 있는 동작을 지원한다.
+
+![](../attachments/raycast-2022-08-21-21-57-05.png)
 
 ## Window Management
+기존에 Spectacle 툴을 사용하여 원도우를 관리했었는데, raycast 에서도 동일한 기능을 지원한다.  
+유사한 툴로는 Magnet, Spectacle 등등이 있다.
+
+![](../attachments/![](../attachments/raycast-2022-08-21-21-58-19.png).png)
+
 
 ## Terminal Finder
+Iterm 에서 해당 경로로 Finder 를 열거나, Finder 에서 Iterm 을 열 수 있게 해준다.
+
+![](../attachments/raycast-2022-08-21-22-01-11.png)
 
 ## Port Manager
+mac 을 사용하면서 가장 많이 검색하는 키워드중에 하나가 "mac kill port" 일 것이다.
+
+해당 플러그인을 사용하면 현재 열려있는 포트 리스트와 특정 포트를 kill 하는 인터페이스를 제공한다.
+
+![](../attachments/raycast-2022-08-21-22-03-45.png)
+
+## Slack
+
+회사에서 메신저로 Slack 를 사용하고 있다면 유용하다.
+
+반드시 확인해야하는 메세지나 채널 (페이지 모니터링 채널 등...) 은 `Unread Messages` 에 채널을 등록해서 수시로 확인하고,
+
+`Open Unread Messages` 를 단축키로 등록해, 포모도로가 한 세션 끝날때 마다 확인하고 있다.
+
+![](../attachments/raycast-2022-08-21-22-52-38.png)
+
