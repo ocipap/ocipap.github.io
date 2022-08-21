@@ -129,3 +129,12 @@ mac 을 사용하면서 가장 많이 검색하는 키워드중에 하나가 "ma
 
 ![](../attachments/raycast-2022-08-21-22-52-38.png)
 
+## ray.so
+
+소스 코드를 이미지화 해준다. 비슷한 사이트로는 [Carbon](https://carbon.now.sh) 이라는 웹사이트가 있다.
+
+이미지화 할 소스코드에 드래그해서 커서를 만든 후, `Create Image From Code` 를 선택하면 된다.
+
+아래는 해당 실행의 결과물이다.
+
+![](../attachments/603f613c8cf57b98b81b6176834b1043.png)
