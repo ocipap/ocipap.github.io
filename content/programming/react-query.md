@@ -575,7 +575,15 @@ const worker = setupWorker(
 )
 ```
 
-## Test 시 Query Wrapper 를 사용한다.
+## mutate 는 onSuccess 는 해당 컴포넌트가 마운트가 해제되면 울리지 않는다.
+
+[관련 링크](https://stackoverflow.com/questions/70662482/react-query-mutate-onsuccess-function-not-responding)
+
+강의실 개선 작업을 하다 해당 수업의 시청 여부를 체크하는 컴포넌트에서 사용한 `mutate` 의 `onSuccess` 가 실행되지 않는 버그가 발생했다.
+
+문제의 원인은 `mutate` 를 사용한 컴포넌트가 mutate 성공 이후에 마운트를 헤제하는 로직으로 작성되어 있었다.
+
+해당 `mutate` 함수를 부모에서 실행하고, 자식한테 props 로 해당 함수를 넘겨주는 방식으로 작성하니 해결되었다.
 
 
-## mutate 테스트 하는 방법
+

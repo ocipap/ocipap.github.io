@@ -11,3 +11,9 @@ tags:
 
 ![종료한 스프린트 되돌리기](../attachments/jira-2022-04-24-02-26-47.png)
 
+## Git repo 에 관련 코드 조각 검색하기
+
+[https://grep.app](https://grep.app)
+
+해당 웹사이트에서 내가 작성한 코드의 방식이 맞는지 대략적으로 확인할 수 있다.
+
