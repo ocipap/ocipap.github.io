@@ -24,7 +24,7 @@ getStaticProps (getStaticPaths) 를 통해 데이터를 Fetch 해옴
 
 SSG 와 비슷하게 동작, revalidate 옵션으로 페이지를 다시 만들어낼 주기를 설정
 
-```tsx
+```js
 export async function getStaticProps() {
   return {
     props: { time: new Date().toISOString() },
@@ -66,7 +66,7 @@ AWS 의 람다 와 동일, Vercel 에서는 Serverless Functions 이라고 부�
 
 **Example**
 
-```tsx
+```js
 import dynamic from 'next/dynamic'
 
 const DynamicHeader = dynamic(() => import('../components/header'), {
@@ -86,7 +86,7 @@ export default function Home() {
 
 suspense 옵션을 통해서 `Suspense` 기능을 사용
 
-```tsx
+```js
 const DynamicHeader = dynamic(() => import('../components/header'), {
   suspense: true, // 
 })
@@ -94,7 +94,7 @@ const DynamicHeader = dynamic(() => import('../components/header'), {
 
 React 18 이전에는 suspense 대신 loading 옵션을 사용
 
-```tsx
+```js
 const DynamicHeader = dynamic(() => import('../components/header'), {
   loading: () => <div>Loading...</div>,
 })
@@ -104,7 +104,7 @@ const DynamicHeader = dynamic(() => import('../components/header'), {
 
 동적 임포트하는 파일의 특정 컴포넌트를 import 하고 싶다면 Promise then 을 사용
 
-```tsx
+```js
 // components/hello.js
 export function Hello() {
   return <p>Hello!</p>
@@ -120,7 +120,7 @@ const DynamicComponent = dynamic(() =>
 동적 임포트를하는 컴포넌트를 CSR 방식으로 사용하고 싶다면 ssr 옵션을 false 로 주면 된다.
 
 
-```tsx
+```js
 import dynamic from 'next/dynamic'
 
 const DynamicHeader = dynamic(() => import('../components/header'), {
@@ -139,6 +139,84 @@ Shallow Routing 은 **현재 페이지 URL 변경에서만 작동**
 1. location.replace("url"): 로컬 state 유지 안됨 (리렌더)
 2. router.push(url): state 유지 / data fetching O
 3. router.push(url, as, { shallow: true }): state 유지 / data fetching X
+
+---
+
+## Link Component
+클라이언트 단에서 페이지 이동을 할 때 사용하는 컴포넌트
+
+```jsx
+import Link from 'next/link'
+
+function Home() {
+  return (
+    <ul>
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+    </ul>
+  )
+}
+
+export default Home;
+```
+Link 컴포넌트에 스타일을 주고 싶다면, Link 컴포넌트 안에 a 태그를 넣어주고 해당 a 태그에 스타일을 적용하면 된다.
+
+### Link 컴포넌트의 자식으로 a 태그 커스텀 컴포넌트를 사용한 경우
+
+passHref 옵션을 사용해야한다. 해당 속성을 넣지 않으면 a 태그에 href 속성이 없어 SEO 에 안좋다.
+
+```js
+const StyledLink = styled.a`
+  color: red;
+`
+
+function Home() {
+  return (
+    <ul>
+      <li>
+        <Link href="/" passHref>
+          <StyledLink>링크</StyledLink>
+        </Link>
+      <li>
+    </ul>
+  )
+}
+```
+
+### Link 컴포넌트의 자식으로 함수형 컴포넌트를 사용한 경우
+해당 함수형 컴포넌트는 forwardRef 를 사용해야한다.  
+
+### Link 컴포넌트에 적용된 최적화
+
+**Client side navigate**  
+기존 a 태그와 다른 점은 페이지를 이동할 때 필요한 리소스만 호출해서 JS 상에서 페이지를 이동시킨다.  
+따라서 해당 페이지내 리소스가 아닌 외부 링크로 가는 경우에는 a 태그를 사용해도 무방함  
+
+**Prefetching**  
+Link 컴포넌트가 viewport 에 들어오면 해당 페이지의 리소스를 미리 불러온다.   
+`yarn start` 에서만 동작  
+
+## Image 컴포넌트
+
+### Image 컴포넌트에 적용된 최적화
+
+**Resizing**  
+기기의 크기에 맞게 이미지 리소스를 리사이징  
+모바일 환경에서 이미지 리소스 크기를 줄여줌
+
+**Lazy loading**
+viewport 에 해당 컴포넌트가 노출되었을 때 이미지를 불러옴  
+화면에 노출되지 않은 이미지 리소스를 불러오지 않아 유리함  
+
+
+
+
+
+
+
+
+
 
 
 
