@@ -5,7 +5,44 @@ tags:
 - Nextjs
 ---
 
-## 데이터 패칭 및 렌더링
+## Data Fetching
+
+### getInitialProps  
+server side rendering 
+
+### getServerSideProps
+server side rendering
+
+### getStaticPath
+Dynamic routes 를 할 때 path 리스트를 생성
+
+#### fallback 
+빌드 과정에 존재하지 않았던 static 파일에 대한 처리 옵션
+
+존재하지 않는 static 파일 접속 시, 
+- false 인 경우(default), 404 에러 발생
+- true 인 경우, 해당 페이지의 getStaticProps 를 실행하여 데이터를 가져온 후 static file 을 생성함
+  - 이때 router 의 isFallback 을 true 로 변환 후 페이지 렌더링
+```tsx
+import { useRouter } from 'next/router'
+
+function Post({ post }) {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+}
+```
+- 'blocking' 인 경우, 해당 해당 페이지의 getStaticProps 를 실행하여 데이터를 가져온 후 static file 을 생성함
+  - getStaticProps 의 응답을 기다린 후 페이지 렌더링
+
+### getStaticProps
+SSG  
+
+---
+
+## Rendering
 
 ### Server side Rendering (SSR)  
 서버에서 데이터 패칭 후 페이지를 그려줌
@@ -20,7 +57,7 @@ getStaticProps (getStaticPaths) 를 통해 데이터를 Fetch 해옴
 
 `getStaticPaths` 는 동적 path 에서 getStaticProps 로 만들어질 데이터가 무엇인지 알려줌
 
-### **Incremental Site Regeneration (ISR)**
+### Incremental Site Regeneration (ISR)
 
 SSG 와 비슷하게 동작, revalidate 옵션으로 페이지를 다시 만들어낼 주기를 설정
 
@@ -36,7 +73,8 @@ export async function getStaticProps() {
 
 ### Pre-rendering
 getServerSideProps / getStaticProps 에서 데이터를 미리 만들어 놓고 내려주는 방식
-따라서 페이지 렌더링 후 js 를 로드하여 데이터를 가져오는 CSR 방식에 비해, SEO 에 유리함
+따라서 페이지 렌더링 후 js 를 로드하여 데이터를 가져오는 CSR 방식에 비해, SEO 에 유리함  
+
 ---
 
 ## 최적화
@@ -209,15 +247,6 @@ Link 컴포넌트가 viewport 에 들어오면 해당 페이지의 리소스를 
 viewport 에 해당 컴포넌트가 노출되었을 때 이미지를 불러옴  
 화면에 노출되지 않은 이미지 리소스를 불러오지 않아 유리함  
 
-
-
-
-
-
-
-
-
-
-
-
-
+## Code Splitting
+애플리케이션의 번들을 각 진입점에 필요한 더 작은 청크로 분활하는 프로세스
+특정 페이지를 실행하는 데 필요한 코드만 로드하여 애플리케이션의 초기 로드 시간을 개선
