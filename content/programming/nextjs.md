@@ -37,6 +37,8 @@ function Post({ post }) {
 - 'blocking' 인 경우, 해당 해당 페이지의 getStaticProps 를 실행하여 데이터를 가져온 후 static file 을 생성함
   - getStaticProps 의 응답을 기다린 후 페이지 렌더링
 
+상위 1 ~ 50 개의 페이지를 빌드 과정에 미리 생성하고, 나머지는 fallback 을 통해 요청 당시에 생성하는 방식을 사용하면 좀 더 효율적으로 앱을 운용할 수 있음
+
 ### getStaticProps
 SSG  
 
