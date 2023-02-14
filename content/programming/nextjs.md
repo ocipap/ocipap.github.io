@@ -206,7 +206,7 @@ Link 컴포넌트에 스타일을 주고 싶다면, Link 컴포넌트 안에 a �
 
 passHref 옵션을 사용해야한다. 해당 속성을 넣지 않으면 a 태그에 href 속성이 없어 SEO 에 안좋다.
 
-```js
+```tsx
 const StyledLink = styled.a`
   color: red;
 `
@@ -219,10 +219,10 @@ function Home() {
           <StyledLink>링크</StyledLink>
         </Link>
       <li>
-    </ul>
+    </ul> 
   )
 }
-```
+``` 
 
 ### Link 컴포넌트의 자식으로 함수형 컴포넌트를 사용한 경우
 해당 함수형 컴포넌트는 forwardRef 를 사용해야한다.  
@@ -252,3 +252,72 @@ viewport 에 해당 컴포넌트가 노출되었을 때 이미지를 불러옴
 ## Code Splitting
 애플리케이션의 번들을 각 진입점에 필요한 더 작은 청크로 분활하는 프로세스
 특정 페이지를 실행하는 데 필요한 코드만 로드하여 애플리케이션의 초기 로드 시간을 개선
+
+## Next.js Compiler
+
+### SWC
+Rust 기반의 속도가 빠른 컴파일러  
+
+```
+// next.config.js
+module.exports = {
+  swcMinify: true,
+}
+```
+
+### 유용한 Features
+
+**Remove Console**
+
+`console.*` 호출을 제거해준다. 
+
+```typescript jsx
+// next.config.js
+module.exports = {
+  compiler: {
+    removeConsole: true,
+  },
+}
+
+
+// console.error 는 제외
+module.exports = {
+  compiler: {
+    removeConsole: {
+      exclude: ['error'],
+    },
+  },
+}
+```
+
+**Remove React Properties**  
+jsx property 를 제거하는 기능  
+default 로 `^data-test` 를 제거함 (테스트를 위한 속성 제거)  
+
+```typescript jsx
+// next.config.js
+module.exports = {
+  compiler: {
+    reactRemoveProperties: true,
+  },
+}
+
+// 특정 property 제거
+// next.config.js
+module.exports = {
+  compiler: {
+    reactRemoveProperties: { properties: ['^data-custom$'] },
+  },
+}
+```
+
+**Modularize Imports**
+
+많은 npm packages 들이 "barrel files" 를 사용하여 하나의 파일로 서빙하고 있음
+이때 사용하지 않는 barrel file 에 선언된 re-exported files dp 대해서도 컴파일이 돌아감
+
+
+
+
+
+## Preview Mode
