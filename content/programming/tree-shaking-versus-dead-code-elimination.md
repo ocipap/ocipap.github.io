@@ -73,6 +73,7 @@ import merge from 'lodash/merge'
 ## 참고 문헌
 - [Tree-shaking versus dead code elimination](https://medium.com/@Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80)
 - [Tree Shaking과 Module System](https://so-so.dev/web/tree-shaking-module-system/)
-
+- [https://nextjs.org/docs/advanced-features/compiler#modularize-imports](https://nextjs.org/docs/advanced-features/compiler#modularize-imports)
+- [https://nextjs.org/blog/next-13-1#import-resolution-for-smaller-bundles](https://nextjs.org/blog/next-13-1#import-resolution-for-smaller-bundles)
 
 
