@@ -8,15 +8,22 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-      - name: yarn install
-        run: yarn install
+      - name: Setup | Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm i --frozen-lockfile
 
       - name: gatsby build
         env:
           GH_API_KEY: ${{ secrets.GITHUB }}
-        run: yarn build
+        run: npm run build
 
       - name: deploy
         uses: maxheld83/ghpages@v0.2.1
