@@ -1,8 +1,9 @@
-on:
-  push:
-    branches:
-      - gh-pages
 name: build gatsby
+on:
+  workflow_dispatch:
+    push:
+      branches:
+        - main
 jobs:
   build_gatsby:
     name: build
