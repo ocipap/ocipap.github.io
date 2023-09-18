@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "fad7ecfab1b23558",
+        "id": "94a6ad06a8016658",
         "type": "tabs",
         "children": [
           {
-            "id": "8acb405c6b3041e9",
+            "id": "b076a398ac0735e4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "book/모든 것이 되는 법.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "book/모든 것이 되는 법.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "book/모든 것이 되는 법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "book/모든 것이 되는 법.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,10 +138,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "8acb405c6b3041e9",
+  "active": "b076a398ac0735e4",
   "lastOpenFiles": [
-    "attachments/XL.jpg",
     "book/모든 것이 되는 법.md",
+    "attachments/XL.jpg",
     "book/Five Lines of Code.md",
     "book/오브젝트.md",
     "book/Clean Code.md",

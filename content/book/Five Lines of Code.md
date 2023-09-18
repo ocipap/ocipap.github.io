@@ -105,4 +105,6 @@ function reportIfPrime(n: number) {
 **의도**
 if 문이 하나의 작업이기 때문에 이를 분리할 때 이어지는 else if 는 if 문과 분리할 수 없는 원자 단위로 봄
 
+## 4장. 타입 코드 처리하기
+
 
