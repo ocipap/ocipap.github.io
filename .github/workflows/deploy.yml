@@ -1,9 +1,8 @@
 name: build gatsby
 on:
-  workflow_dispatch:
-    push:
-      branches:
-        - master
+  push:
+    branches:
+      - master
 jobs:
   build_gatsby:
     name: build
