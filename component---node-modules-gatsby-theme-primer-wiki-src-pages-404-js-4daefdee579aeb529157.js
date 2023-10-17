@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpapico_wiki=self.webpackChunkpapico_wiki||[]).push([[874],{69063:function(e,t,n){n.r(t);var a=n(67294),l=n(81705);t.default=e=>{let{data:t,location:n}=e;return a.createElement(a.Fragment,null,a.createElement(l.Z,{post:{title:"404: Not Found"}}),a.createElement("h1",null,"404: Not Found"),a.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}}]);
+//# sourceMappingURL=component---node-modules-gatsby-theme-primer-wiki-src-pages-404-js-4daefdee579aeb529157.js.map
