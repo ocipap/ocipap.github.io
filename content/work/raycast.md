@@ -77,7 +77,7 @@ https://www.toptal.com/developers/gitignore/
 회사 계정과 개인 구글 워크스페이스 계정이 분리되어 있거나, 개발하고 있는 서비스의 권한 별로 QA 를 진행하다보면, 크롬에 여러 구글 Profile 이 연결되어 있는 경우가 있는데, 이때 사용하면 좋다.
 특정 Profile 을 선택해, 접속하고자 하는 주소를 입력하면 된다.
 
-![Google Chrome Profile](.raycast_images/CleanShot 2023-10-23 at 10.png)
+![Google Chrome Profile](../attachments/.raycast_images/CleanShot 2023-10-23 at 10.png)
 
 ## Google Translate
 
@@ -171,10 +171,10 @@ mac 을 사용하면서 가장 많이 검색하는 키워드중에 하나가 "ma
 
 가끔 lorem 이 필요할 때 가볍게 사용할 수 있다.
 
-![Lorem Ipsum](.raycast_images/CleanShot 2023-10-23 at 10.png)
+![Lorem Ipsum](../attachments/.raycast_images/CleanShot 2023-10-23 at 10.png)
 
 ## Figma file search
 [다운로드 링크](https://www.raycast.com/michaelschultz/figma-files-raycast-extension)
 
 회사에서 Figma 를 디자인 툴로 사용하고 있다면 유용하다. 프로젝트 검색 및 최근 수정한 파일에 쉽게 접근할 수 있다.
-![Figma file search](.raycast_images/7bb73211.png)
+![Figma file search](../attachments/.raycast_images/7bb73211.png)
