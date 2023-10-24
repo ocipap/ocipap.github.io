@@ -38,7 +38,6 @@ tags:
 
 - [x] [뱅크샐러드 iOS팀이 숨쉬듯이 테스트코드 짜는 방식](https://blog.banksalad.com/tech/test-in-banksalad-ios-1/)
   - 다시 읽어보기
-- [ ] 
 
 ## PO
  
