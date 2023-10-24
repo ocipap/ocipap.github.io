@@ -1,9 +1,13 @@
 ---
-title: Clean Code 
+title: Clean Code
 tags:
-- 책읽기
-
+  - 독서
 ---
+
+도서 링크: https://www.yes24.com/Product/Goods/11681152
+
+![CLean Code](https://image.yes24.com/goods/11681152/L)
+
 
 ## 함수
 

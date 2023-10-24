@@ -1,8 +1,13 @@
 ---
 title: Five Lines of Code
 tags:
-  - 책읽기
+  - 독서
 ---
+
+도서 링크: https://www.yes24.com/Product/Goods/116904325
+
+![Five Lines of Code](https://image.yes24.com/goods/116904325/L)
+
 
 ## 3장. 긴 코드 조각 내기
 
