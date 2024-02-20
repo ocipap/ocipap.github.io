@@ -28,7 +28,7 @@ webStorm --line \2 --column \3 \1
 ![iterm 설정창](../attachments/.iterm2-to-webstorm_images/fa4b7d95.png)
 
 
-## 참고 문헌
+## 참고 자료
 - https://www.jetbrains.com/help/webstorm/opening-files-from-command-line.html
 - https://r0k.wiki/ 주인장의 팁
 

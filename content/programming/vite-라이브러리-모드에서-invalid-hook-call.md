@@ -50,7 +50,7 @@ Uncaught TypeError: Cannot read properties of null (reading 'useRef')
 }
 ```
 
-## 참고 문헌
+## 참고 자료
 
 - https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma
 - https://ko.vitejs.dev/guide/build.html#library-mode
