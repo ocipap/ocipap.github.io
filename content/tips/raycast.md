@@ -77,7 +77,7 @@ https://www.toptal.com/developers/gitignore/
 회사 계정과 개인 구글 워크스페이스 계정이 분리되어 있거나, 개발하고 있는 서비스의 권한 별로 QA 를 진행하다보면, 크롬에 여러 구글 Profile 이 연결되어 있는 경우가 있는데, 이때 사용하면 좋다.
 특정 Profile 을 선택해, 접속하고자 하는 주소를 입력하면 된다.
 
-![Google Chrome Profile](../attachments/.raycast_images/CleanShot 2023-10-23 at 10.png)
+![Google Chrome Profile](../attachments/.raycast_images/CleanShot%202023-10-23%20at%2010.png)
 
 ## Google Translate
 
