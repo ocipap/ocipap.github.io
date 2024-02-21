@@ -14,14 +14,13 @@ tags:
 2. 미리보기가 아닌 상태에서 모든 이벤트를 디버깅하려면, Google Tag Manager 의 Google 태그 구성 태그의 구성 매개변수에 `debug_mode` 를 `true` 로 추가한다.  
 ![](../attachments/.google-analytics-4-debug-view_images/GGaStjw10XfVHL15u0tAyWNmnmPu3tqakRNL.png)
 3. 미리보기가 아닌 상태에서 특정 이벤트를 디버깅하려면, Google Tag Manager 의 Google 태그 구성 태그의 구성 매개변수에 `debug_mode` 를 `true` 로 추가한다.
-![](../attachments/.google-analytics-4-debug-view_images/CleanShot 2024-02-21 at 21.png)
+![](../attachments/.google-analytics-4-debug-view_images/CleanShot-2024-02-21-at-21.png)
 
 
 ## Debug View
-Debug 모드가 활성화 되면, Google Analytics 4 Debug View 에서 이벤트를 확인할 수 있다.
-![](../attachments/.google-analytics-4-debug-view_images/CleanShot%202024-02-21-10-08.png)
-
-![](../attachments/.google-analytics-4-debug-view_images/CleanShot 2024-02-21 at 22.png)
+Debug 모드가 활성화 되면, Google Analytics 4 Debug View 에서 이벤트를 확인할 수 있다.  
+![](../attachments/.google-analytics-4-debug-view_images/CleanShot-2024-02-21-10-08.png)  
+![](../attachments/.google-analytics-4-debug-view_images/CleanShot-2024-02-21-at-22.png)
 
 수집되는 이벤트 이름 뿐만 아니라, 해당 이벤트가 수집되었을때 파라미터, 사용자 속성 등을 함께 확인할 수 있다.
 
