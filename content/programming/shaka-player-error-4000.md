@@ -39,7 +39,7 @@ URI가 잘 알려진 확장자로 끝나도록 매니페스트의 이름을 바�
 
 ### Configure the server to send a recognizable Content-Type header.
 서버가 인식 가능한 Content-Type 헤더를 보내도록 서버를 구성합니다.
-![](.shaka-player-error-4000_images/92edbb59.png)
+![](../attachments/.shaka-player-error-4000_images/92edbb59.png)
 
 문제가 발생하는 m3u8 파일의 Content-Type 을 확인해보니 `text/plain` 으로 되어있었다.
 
