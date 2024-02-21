@@ -2,6 +2,7 @@
 title: shaka player using typescript
 tags:
 - library
+- shaka-player
 ---
 
 ## 문제 상황
