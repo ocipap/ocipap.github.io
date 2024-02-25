@@ -1,5 +1,5 @@
 ---
-title: Warning Don’t paste code into the DevTools Console that you don’t understand or haven’t reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type ‘allow pasting’ below to allow pasting.
+title: 크롬 개발자 도구 붙여넣기 오류
 tags:
   - devtools
 ---
