@@ -3,6 +3,7 @@ title: Suspense 설명회
 tags:
   - react
   - 설명회
+  - draft
 ---
 
 **서론**
@@ -389,30 +390,18 @@ function App() {
 export default App;
 ```
 
-### 기존 Suspense 와 MySuspense 의 차이점
+### 다음 포스트
 
-- Concurrency
-    - ?
--
+- Suspense 와 동시성
 
-참고 문헌
+#### 참고 문헌
 
-https://saengmotmi.netlify.app/react/react-lazy/
-
-https://blog.logrocket.com/react-suspense-data-fetching/#:~:text=smoother%20user%20experience.-,React%20data%20fetching%20patterns,-Whenever%20a%20React
-
----
-
-https://blog.sjoleee.info/posts/suspense-1
-
-https://jser.dev/react/2022/04/02/suspense-in-concurrent-mode-1-reconciling
-
-https://jser.dev/react/2022/04/17/offscreen-component
-
-https://ko.react.dev/reference/react/Suspense
-
-https://github.com/reactwg/react-18/discussions/37
-
-[https://velog.io/@woogur29/Suspense가-Hydration중에-동작하는-방식](https://velog.io/@woogur29/Suspense%EA%B0%80-Hydration%EC%A4%91%EC%97%90-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94-%EB%B0%A9%EC%8B%9D)
-
-https://maxkim-j.github.io/posts/suspense-argibraic-effect/
+- https://saengmotmi.netlify.app/react/react-lazy/
+- https://blog.logrocket.com/react-suspense-data-fetching/#:~:text=smoother%20user%20experience.-,React%20data%20fetching%20patterns,-Whenever%20a%20React
+- https://blog.sjoleee.info/posts/suspense-1
+- https://jser.dev/react/2022/04/02/suspense-in-concurrent-mode-1-reconciling
+- https://jser.dev/react/2022/04/17/offscreen-component
+- https://ko.react.dev/reference/react/Suspense
+- https://github.com/reactwg/react-18/discussions/37
+- https://velog.io/@woogur29/Suspense%EA%B0%80-Hydration%EC%A4%91%EC%97%90-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94-%EB%B0%A9%EC%8B%9D
+- https://maxkim-j.github.io/posts/suspense-argibraic-effect/
